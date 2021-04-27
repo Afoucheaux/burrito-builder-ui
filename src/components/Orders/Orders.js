@@ -7,7 +7,7 @@ const Orders = props => {
       <div className="order">
         <h3>{order.name}</h3>
         <ul className="ingredient-list">
-          {order.ingredients.map(ingredient => {
+          {order.ingredients.map((ingredient, i) => {
             return <li>{ingredient}</li>
           })}
         </ul>

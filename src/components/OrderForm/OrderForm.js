@@ -10,14 +10,32 @@ class OrderForm extends Component {
     };
   }
 
-
   handleSubmit = e => {
     e.preventDefault();
-    this.clearInputs();
+    if (this.state.name === false || this.state.ingredients === undefined) {
+      return
+    } else {
+      this.props.addOrder({id:Date.now, name: this.state.name, ingredients: this.state.ingredients});
+      this.clearInputs();
+    }
   }
 
   clearInputs = () => {
     this.setState({name: '', ingredients: []});
+  }
+
+  handleNameChange = (e) => {
+    this.setState({name: e.target.value})
+  }
+
+  handleIngredientChange = (e) => {
+    e.preventDefault();
+    if (this.state.ingredients === undefined) {
+      this.setState({ingredients:[e.target.name]})
+    } else {
+      let newList = [...this.state.ingredients, e.target.name]
+      this.setState({ingredients: newList})
+    }
   }
 
   render() {

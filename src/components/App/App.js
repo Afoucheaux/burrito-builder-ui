@@ -28,7 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <main className="App">
+      <main className="App" data-cy='main'>
         <header>
           <h1>Burrito Builder</h1>
           <OrderForm addOrder={this.addOrder}/>

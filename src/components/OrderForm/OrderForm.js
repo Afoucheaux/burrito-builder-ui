@@ -49,7 +49,7 @@ class OrderForm extends Component {
     });
 
     return (
-      <form>
+      <form data-cy='OrderForm'>
         <input
           type='text'
           placeholder='Name'
